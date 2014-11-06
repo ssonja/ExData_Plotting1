@@ -3,6 +3,8 @@ WHERE Date in ('1/2/2007','2/2/2007') ", sep = ";", header = TRUE)
 
 datetime<-as.POSIXct(paste(dat$Date, dat$Time), format="%d/%m/%Y %H:%M:%S")
 
+png(file = "plot4.png") 
+
 par(mfrow=c(2,2))
 with(dat,
   {
@@ -17,3 +19,5 @@ with(dat,
     plot(datetime,Global_reactive_power, type="l")
   }
 )
+
+dev.off()
